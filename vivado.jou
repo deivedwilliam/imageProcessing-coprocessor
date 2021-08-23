@@ -1,0 +1,115 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Aug 22 13:13:16 2021
+# Process ID: 5608
+# Current directory: C:/Users/deive/Documents/TCC/project/image_processing_base
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7792 C:\Users\deive\Documents\TCC\project\image_processing_base\image_processing_base.xpr
+# Log file: C:/Users/deive/Documents/TCC/project/image_processing_base/vivado.log
+# Journal file: C:/Users/deive/Documents/TCC/project/image_processing_base\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.srcs/sources_1/bd/system/system.bd}
+delete_bd_objs [get_bd_cells xlconstant_0]
+delete_bd_objs [get_bd_nets Net]
+delete_bd_objs [get_bd_nets M01_ARESETN_1]
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_out1]
+connect_bd_net [get_bd_pins axi_vdma_0/m_axis_mm2s_aclk] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk]
+connect_bd_net [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk] [get_bd_pins smartconnect_0/aclk]
+report_ip_status -name ip_status 
+upgrade_ip [get_ips  {system_axi_interconnect_0_0 system_proc_sys_reset_0_0 system_smartconnect_0_0 system_v_axi4s_vid_out_0_0 system_axi_vdma_0_0 system_axi_gpio_0_0 system_clk_wiz_0_0 system_v_tc_0_0}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {system_axi_interconnect_0_0 system_proc_sys_reset_0_0 system_smartconnect_0_0 system_v_axi4s_vid_out_0_0 system_axi_vdma_0_0 system_axi_gpio_0_0 system_clk_wiz_0_0 system_v_tc_0_0}] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.srcs/sources_1/bd/system/system.bd]
+startgroup
+set_property -dict [list CONFIG.C_HAS_ASYNC_CLK {1}] [get_bd_cells v_axi4s_vid_out_0]
+endgroup
+connect_bd_net [get_bd_pins v_axi4s_vid_out_0/aclk] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk]
+connect_bd_net [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk]
+copy_bd_objs /  [get_bd_cells {proc_sys_reset_0}]
+regenerate_bd_layout
+connect_bd_net [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk]
+connect_bd_net [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins processing_system7_0/FCLK_RESET0_N]
+connect_bd_net [get_bd_pins proc_sys_reset_1/peripheral_aresetn] [get_bd_pins smartconnect_0/aresetn]
+regenerate_bd_layout
+connect_bd_net [get_bd_pins v_tc_0/clk] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_clk]
+connect_bd_net [get_bd_pins rgb2dvi_0/PixelClk] [get_bd_pins v_tc_0/clk]
+connect_bd_net [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] -boundary_type upper
+connect_bd_net [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] -boundary_type upper
+connect_bd_net [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] -boundary_type upper
+connect_bd_net [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] -boundary_type upper
+connect_bd_net [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] -boundary_type upper
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins axi_interconnect_0/M01_ARESETN]
+connect_bd_net [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins axi_interconnect_0/M01_ACLK]
+startgroup
+set_property -dict [list CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {148} CONFIG.PCW_EN_CLK1_PORT {1} CONFIG.PCW_FCLK1_PERIPHERAL_CLKSRC {ARM PLL}] [get_bd_cells processing_system7_0]
+endgroup
+connect_bd_net [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK1] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk]
+connect_bd_net [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK1]
+connect_bd_net [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins axi_vdma_0/axi_resetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins axi_vdma_0/s_axi_lite_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+disconnect_bd_net /processing_system7_0_FCLK_CLK0 [get_bd_pins clk_wiz_0/clk_in1]
+set_property -dict [list CONFIG.USE_DYN_RECONFIG {false} CONFIG.USE_RESET {false} CONFIG.AXI_DRP {false} CONFIG.PHASE_DUTY_CONFIG {false} CONFIG.USE_LOCKED {true} CONFIG.RESET_TYPE {ACTIVE_HIGH} CONFIG.RESET_PORT {reset}] [get_bd_cells clk_wiz_0]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK1]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins v_tc_0/clk]
+disconnect_bd_net /Net [get_bd_pins axi_gpio_0/s_axi_aclk]
+connect_bd_net [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK1]
+disconnect_bd_net /Net [get_bd_pins axi_gpio_0/s_axi_aclk]
+connect_bd_net [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+startgroup
+endgroup
+validate_bd_design
+save_bd_design
+reset_run synth_1
+reset_run system_processing_system7_0_0_synth_1
+reset_run system_rgb2dvi_0_1_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_run impl_1
+file copy -force C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.runs/impl_1/system_wrapper.sysdef C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.sdk/system_wrapper.hdf
+
+launch_sdk -workspace C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.sdk -hwspec C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.sdk/system_wrapper.hdf
+open_bd_design {C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.srcs/sources_1/bd/system/system.bd}
+startgroup
+endgroup
+startgroup
+set_property -dict [list CONFIG.c_num_fstores {1} CONFIG.c_mm2s_genlock_mode {1} CONFIG.c_mm2s_linebuffer_depth {4096}] [get_bd_cells axi_vdma_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.c_mm2s_max_burst_length {16}] [get_bd_cells axi_vdma_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.C_S_AXIS_VIDEO_DATA_WIDTH.VALUE_SRC USER CONFIG.C_S_AXIS_VIDEO_FORMAT.VALUE_SRC USER] [get_bd_cells v_axi4s_vid_out_0]
+set_property -dict [list CONFIG.C_ADDR_WIDTH {12} CONFIG.C_VTG_MASTER_SLAVE {1}] [get_bd_cells v_axi4s_vid_out_0]
+endgroup
+startgroup
+endgroup
+startgroup
+endgroup
+startgroup
+endgroup
+startgroup
+set_property -dict [list CONFIG.C_AUX_RESET_HIGH.VALUE_SRC USER] [get_bd_cells proc_sys_reset_1]
+set_property -dict [list CONFIG.C_AUX_RESET_HIGH {0}] [get_bd_cells proc_sys_reset_1]
+endgroup
+startgroup
+endgroup
+validate_bd_design
+save_bd_design
+reset_run synth_1
+reset_run system_axi_vdma_0_0_synth_1
+reset_run system_v_axi4s_vid_out_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+file copy -force C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.runs/impl_1/system_wrapper.sysdef C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.sdk/system_wrapper.hdf
+
+launch_sdk -workspace C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.sdk -hwspec C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.sdk/system_wrapper.hdf
+file mkdir C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.srcs/sources_1/new
+close [ open C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.srcs/sources_1/new/image_coprocessing.vhd w ]
+add_files C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.srcs/sources_1/new/image_coprocessing.vhd
+update_compile_order -fileset sources_1

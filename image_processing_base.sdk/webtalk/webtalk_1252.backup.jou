@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# 
+# Start of session at: Tue Aug 10 16:44:51 2021
+# Process ID: 1252
+# Current directory: C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.sdk/webtalk/webtalk.log
+# Journal file: C:/Users/deive/Documents/TCC/project/image_processing_base/image_processing_base.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl
